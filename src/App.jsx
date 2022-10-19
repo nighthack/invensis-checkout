@@ -358,6 +358,9 @@ function App() {
     )
     .then(function (response) {
       console.log(response);
+      const redirectURL = response.data.redirect_url;
+      console.log(redirectURL)
+      window.location.href = redirectURL;
     })
     .catch(function (error) {
       console.log(error);
@@ -372,6 +375,9 @@ function App() {
     )
     .then(function (response) {
       console.log(response);
+      const redirectURL = response.data.redirect_url;
+      console.log(redirectURL)
+      window.location.href = redirectURL;
     })
     .catch(function (error) {
       console.log(error);
@@ -419,34 +425,34 @@ function App() {
       <h1>Sample App for checkout</h1>
       <div className="card">
         <button onClick={() => cart1()}>
-          Button 1
+          Without Discount
         </button>
         <p>
-          With Discount  
+          No discounts for this  
         </p>
       </div>
       <div className="card">
         <button onClick={() => cart2()}>
-          Button 2
+          With Discount
         </button>
         <p>
-          Without Discount
+          Without Discount Amount 400
         </p>
       </div>
       <div className="card">
         <button onClick={() => cart3()}>
-          Button 3
+          Course start date is less than today date
         </button>
         <p>
-          Course start date is less than today date
+          --Course start date is less than today date---
         </p>
       </div>
       <div className="card">
         <button onClick={() => cart4()}>
-          Button 4
+          Mahipat Test Case
         </button>
         <p>
-          with Discount Amount 2250
+          With Discount Amount 750.5 for each item
         </p>
       </div>
       {/* <p className="read-the-docs">
