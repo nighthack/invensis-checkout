@@ -520,7 +520,7 @@ function App() {
 
   const cart = (params) => {
     axios.post(
-      'https://invensis.payments-test.invensis.net/api/v1/carts', 
+      'https://payments-test.invensis.net/api/v1/carts',
       params, 
       config
     )
