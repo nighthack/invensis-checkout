@@ -7,9 +7,11 @@ function App() {
   const [count, setCount] = useState(0);
   const [token, setToken] = useState("");
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const client_auth = async () => {
     setLoading(true);
+    setError(false);
     try {
       const config = {
         method: "post",
@@ -25,10 +27,12 @@ function App() {
         },
       };
       const resp = await axios(config);
-      console.log(resp.data);
-      setToken(resp.data.access_token);
+      const tk = resp.data.access_token;
+      setToken(tk);
     } catch (err) {
       console.log(err);
+      setToken("");
+      setError(true);
     }
     setLoading(false);
   };
@@ -580,7 +584,11 @@ function App() {
       });
   };
 
-  return loading ? (
+  return error || token == undefined || token == "" ? (
+    <h5>
+      There was an error initializing the app. Please contact administator.
+    </h5>
+  ) : loading ? (
     <h5>Initializing app .... </h5>
   ) : (
     <div className="App">
