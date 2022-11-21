@@ -7,7 +7,7 @@ import { bodyParameters1, bodyParameters2, bodyParameters3, bodyParameters4, bod
 
 
 // BASE_URL="https://payments-test.invensis.net/oauth/token";
-const BASE_URL="http://localhost:3000";
+const BASE_URL="https://payments-test.invensis.net";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -23,7 +23,6 @@ function App() {
     try {
       const config = {
         method: "post",
-        // url: "https://payments-test.invensis.net/oauth/token",
         url: BASE_URL+"/oauth/token",
         headers: {
           grant_type: "client_credentials",

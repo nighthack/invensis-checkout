@@ -1,6 +1,6 @@
 //examples.js
 
-const RETURN_URL="http://localhost:8001/payment";
+const RETURN_URL="https://sample-checkout.invensis.net/payment";
 
 // With Discount Amount
 export const bodyParameters1 = {
