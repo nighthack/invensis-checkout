@@ -584,12 +584,12 @@ function App() {
       });
   };
 
-  return error || token == undefined || token == "" ? (
+  return loading ? (
+    <h5>Initializing app .... </h5>
+  ) : error || token == undefined || token == "" ? (
     <h5>
       There was an error initializing the app. Please contact administator.
     </h5>
-  ) : loading ? (
-    <h5>Initializing app .... </h5>
   ) : (
     <div className="App">
       <div>
