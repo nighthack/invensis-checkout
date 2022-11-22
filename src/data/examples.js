@@ -1,6 +1,12 @@
 //examples.js
 
 const RETURN_URL="https://sample-checkout.invensis.net/payment";
+// const RETURN_URL="http://localhost:3002/payment";
+const OFFSET = 5;
+
+var start_date = new Date();
+var temp_date = new Date();
+start_date.setDate(start_date.getDate()+OFFSET);
 
 // With Discount Amount
 export const bodyParameters1 = {
@@ -8,7 +14,7 @@ export const bodyParameters1 = {
     application_id: "5fec375dcb3e7c630428ca60",
     return_url: RETURN_URL,
     cart_type: "Courses",
-    min_start_date: "01-7-2021",
+    min_start_date: start_date.toLocaleDateString(),
     customer_detail_attributes: {
       email: "jayasree@nighthack.in",
       phone: "8485848584",
@@ -33,7 +39,7 @@ export const bodyParameters1 = {
           item_id: "122",
           item_url: "https://callingapp.com/products/122",
           item_meta: {
-            start_date: ["25-11-2022"],
+            start_date: [start_date.toLocaleDateString()],
             "PMI R.E.P ID": "4177",
             language: "english",
             on_site: false,
@@ -96,7 +102,7 @@ export const bodyParameters2 = {
     application_id: "5fec375dcb3e7c630428ca60",
     return_url: RETURN_URL,
     cart_type: "Courses",
-    min_start_date: "01-7-2021",
+    min_start_date: start_date.toLocaleDateString(),
     customer_detail_attributes: {
       email: "akshay@nighthack.in",
       phone: "8485846767",
@@ -121,7 +127,7 @@ export const bodyParameters2 = {
           item_id: "122",
           item_url: "https://callingapp.com/products/122",
           item_meta: {
-            start_date: ["30-11-2022"],
+            start_date: [start_date.toLocaleDateString()],
             "PMI R.E.P ID": "4178",
             language: "english",
             on_site: false,
@@ -184,7 +190,7 @@ export const bodyParameters3 = {
     application_id: "5fec375dcb3e7c630428ca60",
     return_url: RETURN_URL,
     cart_type: "Courses",
-    min_start_date: "01-7-2021",
+    min_start_date: start_date.toLocaleDateString(),
     customer_detail_attributes: {
       email: "akshay@nighthack.in",
       phone: "8485846767",
@@ -209,7 +215,7 @@ export const bodyParameters3 = {
           item_id: "122",
           item_url: "https://callingapp.com/products/122",
           item_meta: {
-            start_date: ["30-11-2022"],
+            start_date: [start_date.toLocaleDateString()],
             "PMI R.E.P ID": "4178",
             language: "english",
             on_site: false,
@@ -272,7 +278,7 @@ export const bodyParameters4 = {
     application_id: "5fec375dcb3e7c630428ca60",
     return_url: RETURN_URL,
     cart_type: "Courses",
-    min_start_date: "01-7-2021",
+    min_start_date: start_date.toLocaleDateString(),
     customer_detail_attributes: {
       email: "archana@nighthack.in",
       phone: "9686016757",
@@ -297,7 +303,7 @@ export const bodyParameters4 = {
           item_id: "122",
           item_url: "https://callingapp.com/products/122",
           item_meta: {
-            start_date: ["26-08-2022"],
+            start_date: [start_date.toLocaleDateString()],
             "PMI R.E.P ID": "4178",
             language: "english",
             on_site: false,
@@ -354,6 +360,12 @@ export const bodyParameters4 = {
   },
 };
 
+var date_range = [];
+for(var i=1; i<=4; i++){
+  temp_date.setDate(start_date.getDate()+OFFSET*i);
+  date_range.push(temp_date.toLocaleDateString())
+};
+
 // Mahipat Test Case
 export const bodyParameters5 = {
   cart: {
@@ -380,12 +392,8 @@ export const bodyParameters5 = {
           item_url:
             "https://alpha.invensislearning.com/storage/images/courses/icons/pmp-training.svg",
           item_meta: {
-            start_date: [
-              "24-10-2022",
-              "25-10-2022",
-              "26-10-2022",
-              "27-10-2022",
-            ],
+            // Set from above 
+            start_date: date_range,
             training_mode: "Live Virtual Classroom",
           },
           pricing_attributes: {
@@ -465,12 +473,7 @@ export const bodyParameters6 = {
           item_url:
             "https://alpha.invensislearning.com/storage/images/courses/icons/pmp-training.svg",
           item_meta: {
-            start_date: [
-              "24-10-2022",
-              "25-10-2022",
-              "26-10-2022",
-              "27-10-2022",
-            ],
+            start_date: date_range,
             training_mode: "Live Virtual Classroom",
           },
           pricing_attributes: {

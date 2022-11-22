@@ -5,9 +5,8 @@ import axios from "axios";
 
 import { bodyParameters1, bodyParameters2, bodyParameters3, bodyParameters4, bodyParameters5 } from './data/examples.js';
 
-
-// BASE_URL="https://payments-test.invensis.net/oauth/token";
 const BASE_URL="https://payments-test.invensis.net";
+// const BASE_URL="http://localhost:3000";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -84,7 +83,7 @@ function App() {
     <div className="App">
       <center><h1>Sample App for Invensis Checkout</h1></center>
       <table>
-        <thead><th><h2> Test Cases </h2></th><th>Payload</th></thead>
+        <thead><tr><th><h2> Test Cases </h2></th><th>Payload</th></tr></thead>
         <tbody>          
           <tr>
             <td>
